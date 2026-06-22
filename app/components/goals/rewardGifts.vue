@@ -1,13 +1,13 @@
 <script setup lang="ts">
     // definePageMeta({layout: 'default'})
-
     import { useDailyReward } from '~/composables/goals/DailyRewards';
-    import type { Reward } from '~~/shared/types/goal'
-    const { addReward, giveReward, userRewards } = useDailyReward();
-    const title = ref<string>('');
-    const describe = ref<string>('')
-    const achieved = ref(false)
+    import type { Reward } from '~~/shared/types/goal';
+import BaseButton from '../Tailwindcss_Ui_Design/BaseButton.vue';
 
+    const { addReward, userRewards } = useDailyReward();
+    const title = ref<string>('');
+    const describe = ref<string>('');
+    const achieved = ref(false);
     const handleReward = () => {
         //check errors and validation
         if(!title.value.trim()) return
@@ -19,8 +19,8 @@
             describe: describe.value.trim(),
             achieved: achieved.value
         }
+        console.log('data: ', newReward)
         addReward(newReward)
-        giveReward()
 
         // clean for next use
         title.value = ''
@@ -29,20 +29,18 @@
 </script>
 
 <template>
-    <h4>Rewards</h4>
-    <div class="reward-box gap-4 border-4" >
-        <div v-for="reward in userRewards" :key="reward.id" class="reward-box bg-blue-700 rounded">
-            <ol>
-                <li class="text-white text-xl underline">
-                    {{ reward.title }}
-                </li>
-            </ol>
-        </div>
+    <div class="reward-box">
+        <span class="flex flex-col justify-center m-2 p-2 rounded-xl text-2xl">
+            My Rewards:{{ userRewards.length }} </br>
+        </span>
+        <ul v-for="gift in userRewards" :key="gift.id">
+            <li>{{ gift.title }}</li>
+        </ul>
 
-        <form @submit.prevent="handleReward" class="flex flex-col gap-4 p-4 ">
-            <label for="addReward" class="addReward ">Reward</label>
-            <input v-model="title" type="text" name="addReward" placeholder="Add Your Reward" class="m-2 p-2 rounded-l">
-            <button type="submit" class="add-Reward-btn bg-orange-400 m-2 p-2 rounded-xl">Add-Reward</button>
+        <form @submit.prevent="handleReward" class="flex flex-col gap-2 p-2 m-2 ">
+            <label for="addReward" class="addReward text-bold">Reward</label>
+            <input v-model="title" type="text" name="addReward" placeholder="Add Your Reward" class="rounded-xl m-2 p-2">
+            <BaseButton>Reward</BaseButton>
         </form>
     </div>
 </template>

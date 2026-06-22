@@ -6,7 +6,7 @@
  * @returns 
  * import our Goal type Obj
 */
-import type { DailyGoal } from "~~/shared/types/goal"
+import type { DailyGoal } from "~~/shared/types/goal";
 import { useDailyGoals } from "./DailyGoals";
 const {  } = useDailyGoals
 

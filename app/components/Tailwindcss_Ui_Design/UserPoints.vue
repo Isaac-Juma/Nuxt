@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <span class="User-Points-box flex text-2xl bg-blue-600 border border-4">
+    <span class="User-Points-box flex w-fit bg-blue-400 rounded-xl m-2 p-2">
         <slot />
     </span>
 </template>

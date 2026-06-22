@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="DailyQuest flex bg-red-400 text-center justify-center border border-4 flex">
+    <div class="DailyQuest rounded-2xl mt-6 p-4 right-4">
         <slot />
     </div>
 </template>

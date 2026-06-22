@@ -1,11 +1,5 @@
 <script setup>
 
-import CreateGoals from '~/components/goals/createGoals.vue';
-import RewardGifts from '~/components/goals/rewardGifts.vue';
-
-
-
-
 </script>
 
 <template>
@@ -13,10 +7,6 @@ import RewardGifts from '~/components/goals/rewardGifts.vue';
     <div class="base-house">
         <Header />
         <Navigation />
-
-        <!--Sidebar-->
-        <!-- <CreateGoals /> -->
-        
 
         <!--Main Content Area-->
         <main class="main_page">
@@ -30,6 +20,3 @@ import RewardGifts from '~/components/goals/rewardGifts.vue';
         <FooterPage />
     </div>
 </template>
-
-<style scoped>
-</style>

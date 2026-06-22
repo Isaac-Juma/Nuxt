@@ -5,7 +5,7 @@ export function useWpApi () {
     const wppost: any = () => {
         return useAsyncData('wp-posts-clean-stream',
             () =>$fetch('/api/wordpress/posts'), {
-            server: true, // Disable server-side fetching
+            server: true, // server-side fetching
             lazy: true, // Enable lazy loading
             default: () => [], // Default value before data is fetched
         })

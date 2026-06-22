@@ -4,6 +4,10 @@
 // app/composables/goals/dailygoals.ts
 import type { DailyGoal, Reward } from '~~/shared/types/goal'
 
+const goalsList = ref<DailyGoal[]>([])
+const userPoints = ref<number>(0)
+const position = ref<number>(0)
+const userRewards = ref<Reward[]>([])
 
 export const useDailyGoals = () => {
   /**
@@ -11,13 +15,11 @@ export const useDailyGoals = () => {
    * 1 List of Goals
    * 2 Points 
    */
-  const goalsList = ref<DailyGoal[]>([])
-  const userPoints = ref<number>(0)
-  const position = ref<number>(0)
-  const userRewards = ref<Reward[]>([])
 
   // Marks the compeled Goals and skips the failed ones
+
   const goalCompleted = (index: number, isComplete: boolean) => {
+    if (!goalsList.value[index]) return
     if(goalsList.value[index]) {
       goalsList.value[index].completed = isComplete
 
@@ -31,15 +33,40 @@ export const useDailyGoals = () => {
       }
     }
   }
-  // allow user to add new Goal to their Goals List
-  const addGoal = (newGoal: DailyGoal) => {
-    goalsList.value.push(newGoal)
+
+  // add new Goal to user Goals List
+  const addGoal = async (newGoal: DailyGoal) => {
+    if(!newGoal.title.trim()) {
+      throw new Error('Goal can not be empty')
+    }
+
+    //Call our API to store our new Goal data obj
+    try {
+      //...
+      await useWpApi().goalsApi(newGoal);
+
+      // after our API has succeded is when we should Save to UI for the user
+      goalsList.value.push(newGoal)
+
+      // return a success message
+      return {
+        success: true, message: 'Submited'
+      }
+    }
+    catch (err) {
+      console.error('Failed to fetch:', err)
+      return {success: false, message: 'failed to post goals' }
+    }
+    finally {
+      console.log('Done')
+    }
   }
 
   // allow user to edit their Goals according to their needs
   const editGoal = (editgoal: DailyGoal) => {
 
   }
+  
   // allow user to delete specific goal
   const deleteGoal = (id: DailyGoal) => {
   }
@@ -47,20 +74,6 @@ export const useDailyGoals = () => {
   const deleteGoals = (ids: DailyGoal) => {
 
   }
+
   return { goalsList, goalCompleted, addGoal, editGoal, deleteGoal, deleteGoals, userPoints }
 }
-
-
-
-
-
-// How will We know what Goals the user completed and which are pending and failed one's
-
-
-// To know which Goal the user completed on a daily basis 
-
-
-// If the User marked the Goal as completed push the update to the DB
-
-
-// 

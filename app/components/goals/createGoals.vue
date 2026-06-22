@@ -1,99 +1,55 @@
 <script setup lang="ts">
-  /**
-   * Import my form ui
-   */
-  import CreateGoals from '../Tailwindcss_Ui_Design/forms/CreateGoals.vue';
-  
-  // Import the goalController from the composables
-  import BaseButton from '../Tailwindcss_Ui_Design/BaseButton.vue';
-  import type { DailyGoal } from '#imports';
-  import { useDailyGoals } from '~/composables/goals/DailyGoals';
-  
+/**
+ * 1. Import my form ui designs
+ * 2. Import my Logic for handling goal creation
+ */
 
-  // Destructure our handleGoal method from our GoalsController handler
-  // const { handleGoal, userGoals, } = GoalsController();
-  const { goalsList, goalCompleted, addGoal, userPoints } = useDailyGoals();
-  const { goalsApi } = useWpApi();
-  const newTitle = ref<String>('');
-  const newContent = ref<String>('');
-  const currentIndex = ref<number>(0)
+ // UI layouts for Forms
+import GoalsForm from '../Tailwindcss_Ui_Design/forms/GoalsForm.vue';
+import BaseButton from '../Tailwindcss_Ui_Design/BaseButton.vue';
+import FormInput from '../Tailwindcss_Ui_Design/forms/FormInput.vue';
 
-  const currentGoal = computed( () => {
-    return goalsList.value[currentIndex.value] || null
-  })
+// inserting data to user components
+import { useDailyGoals } from '~/composables/goals/DailyGoals';
 
-  // Handle Goal upon achivement and failed 
-  const GoalHandler = (isSuccessful: boolean) => {
-    goalCompleted(currentIndex.value, isSuccessful)
-    currentIndex.value++
+// our system { Goal } object type
+import type { DailyGoal } from '~~/shared/types/goal.ts'
+
+
+
+const { addGoal } = useDailyGoals();
+
+const newGoal =ref<DailyGoal>({
+  id: Date.now().toString(),
+  title: '',
+  description: '',
+  completed: false
+});
+
+const goalHandler = () => {
+  // 1. Save the goal to our goalsList
+  console.log('Plain Data:', JSON.parse(JSON.stringify(newGoal.value)))
+  console.log('Data', newGoal.value)
+  addGoal({...newGoal.value})
+
+  // 2. Clear the form fro next use
+  newGoal.value = {
+    id: Date.now().toString(),
+    title: '',
+    description: '',
+    completed: false
   }
+}
 
-  // Handle submiting Goals...
-  const handleSubmit = async () => {
-    // error checking and validation
-    if (!newTitle.value.trim()) return
-
-    try {
-      // 3. Strictly type user-written object
-      const newGoal: DailyGoal = {
-        id: Date.now().toString(),
-        title: newTitle.value.trim(),
-        description: newContent.value.trim(),
-        completed: false
-      }
-      // addGoal method from useDailyGoals
-      addGoal(newGoal)
-
-      // call my api to consume the created goal
-      const response = await goalsApi(newGoal)
-      console.log('Goal saved to server:', response?.data.title)
-      
-      // Clear input boxes after submiting the data needed
-      newContent.value = ''
-      newTitle.value = ''
-    } catch (error) {
-      console.error('Error creating goal:', error)
-      // Optionally show error to user
-    }
-  }
 </script>
 
+<!--My GoalForm-->
 <template>
-  <h2 class="text-xl font-bold mb-4 align-center">Create Goal</h2>
-  <CreateGoals>
-    <h1>Points: {{ userPoints }}</h1>
-    <div v-if="currentGoal">
-      <h3>Title: {{ currentGoal?.title }}</h3>
-      <p>Goal: {{ currentGoal?.description  }}</p>
-      <BaseButton @click="GoalHandler(true)"> Done✅ </BaseButton>
-      <button class="fail-btn m-2 p-2 bg-red-400 text-center rounded-2" @click="GoalHandler(false)">Fail ❌</button>
-    </div>
-  </CreateGoals>
-
-  <div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md h-100 w-100">
-
-    <h1>Points: {{ userPoints }}</h1>
-    <div v-if="currentGoal">
-      <h3>Title: {{ currentGoal?.title }}</h3>
-      <p>Goal: {{ currentGoal?.description  }}</p>
-      <BaseButton @click="GoalHandler(true)"> Done✅ </BaseButton>
-      <button class="fail-btn m-2 p-2 bg-red-400 text-center rounded-2" @click="GoalHandler(false)">Fail ❌</button>
-    </div>
-
-    <form @submit.prevent="handleSubmit()" class="">
-      <input v-model="newTitle" type="text" name="title" placeholder="Title" class="align-items-center">
-      <input v-model="newContent" type="text" name="content" placeholder="Content" class="">
-      <button type="submit" class="bg-blue-400 m-4 p-4 ">add Goal</button>
-    </form>
-
-    <p>Results:</p>
-    <ul>
-      <li v-for="goal in goalsList" :key="goal.id">
-        <span :style="{ textDecoration: goal.completed ? 'line-through' : 'none' }" class="bg-green-400 m-2 p-2 ">
-          {{ goal.title }} - {{ goal.description }}
-        </span>
-      </li>
-    </ul>
+  <GoalsForm @form-submit="goalHandler">
+    <span>Create Goal</span>
     
-  </div>
+    <FormInput v-model="newGoal.title" type="text" placeholder="Your Goal Name">Goal Name</FormInput>
+    <FormInput v-model="newGoal.description" type="text" placeholder="Goal Description">Goal Description</FormInput>
+    <BaseButton type="submit" class="rounded-xl">goal</BaseButton>
+  </GoalsForm>
 </template>
