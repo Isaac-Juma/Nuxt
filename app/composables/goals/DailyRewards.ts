@@ -1,6 +1,6 @@
 // app/composables/goals/dailygoals.ts
-import type { DailyGoal, Reward } from '~~/shared/types/goal'
-import { useDailyGoals } from './DailyGoals'
+import type { DailyGoal, Reward } from '~~/types/goal';
+import { useDailyGoals } from './DailyGoals';
 
 export const  useDailyReward = () => {
     // Create....

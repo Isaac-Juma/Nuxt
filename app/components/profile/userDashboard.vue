@@ -23,7 +23,7 @@
 import CompletedGoals from '../Tailwindcss_Ui_Design/forms/CompletedGoals.vue';
 
   // logic for inserting data to thiS components
-  const { goalsList, userPoints } = useDailyGoals();
+  const { goalsList, userPoints, archivedGoals } = useDailyGoals();
   const { userRewards } = useDailyReward();
 </script>
 
@@ -54,7 +54,8 @@ import CompletedGoals from '../Tailwindcss_Ui_Design/forms/CompletedGoals.vue';
     </UserGoals>
 
     <CompletedGoals class="col-span-1 ">
-      <div v-for="goal in goalsList" :key="goal.id">
+
+      <div v-for="goal in archivedGoals" :key="goal.id">
         <li v-if="goal.completed === true">
           {{ goal.title }}
         </li>

@@ -2,12 +2,13 @@
 // step 1. create a function for goal management with our logic
 
 // app/composables/goals/dailygoals.ts
-import type { DailyGoal, Reward } from '~~/shared/types/goal'
+import type { DailyGoal, Reward } from '~~/types/goal';
 
-const goalsList = ref<DailyGoal[]>([])
-const userPoints = ref<number>(0)
-const position = ref<number>(0)
-const userRewards = ref<Reward[]>([])
+const goalsList = ref<DailyGoal[]>([]);
+const userPoints = ref<number>(0);
+const position = ref<number>(0);
+const userRewards = ref<Reward[]>([]);
+const archivedGoals = ref<DailyGoal[]>([])
 
 export const useDailyGoals = () => {
   /**
@@ -23,12 +24,20 @@ export const useDailyGoals = () => {
     if(goalsList.value[index]) {
       goalsList.value[index].completed = isComplete
 
+      //new Ideas
+      // goalsList.value.forEach(el => {
+      //   el.completed === true
+      // })
+      // userPoints.value++
+      goalsList.value.filter(el => {
+        if(el.completed === true){
+          archivedGoals.value.push(el)
+        }
+      })
+
       // hook here if goal is completed add points 
       if(goalsList.value[index].completed === true){
         userPoints.value++
-        if(userPoints.value % 3){
-          position.value++
-        }
         // Add my API call here to store completed goals only 
       }
     }
@@ -75,5 +84,5 @@ export const useDailyGoals = () => {
 
   }
 
-  return { goalsList, goalCompleted, addGoal, editGoal, deleteGoal, deleteGoals, userPoints }
+  return { goalsList, archivedGoals, goalCompleted, addGoal, editGoal, deleteGoal, deleteGoals, userPoints }
 }

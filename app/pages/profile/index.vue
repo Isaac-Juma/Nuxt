@@ -22,9 +22,6 @@
     <!--Header Components-->
     <Header /> 
     
-
-
-    
     <!--User Dashboard-->
     <UserDashboard />
   </div>
