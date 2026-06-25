@@ -20,7 +20,7 @@
   //Business logic
   import { useDailyGoals } from '~/composables/goals/DailyGoals';
   import { useDailyReward } from '~/composables/goals/DailyRewards.js';
-import CompletedGoals from '../Tailwindcss_Ui_Design/forms/CompletedGoals.vue';
+  import CompletedGoals from '../Tailwindcss_Ui_Design/forms/CompletedGoals.vue';
 
   // logic for inserting data to thiS components
   const { goalsList, userPoints, archivedGoals } = useDailyGoals();
@@ -45,20 +45,11 @@ import CompletedGoals from '../Tailwindcss_Ui_Design/forms/CompletedGoals.vue';
   
     <UserGoals class="col-span-1 md:col-span-1 lg:col-span-1">
       My Goals: {{ goalsList.length }}
-
-      <div v-for="goal in goalsList" :key="goal.id" class="">
-        
-        <li> {{ goal.title }}</li>
-
-      </div>
     </UserGoals>
-
-    <CompletedGoals class="col-span-1 ">
-
+    
+    <CompletedGoals>
       <div v-for="goal in archivedGoals" :key="goal.id">
-        <li v-if="goal.completed === true">
-          {{ goal.title }}
-        </li>
+        <li>{{ goal.title }}</li>
       </div>
     </CompletedGoals>
 

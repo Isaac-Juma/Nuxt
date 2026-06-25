@@ -8,7 +8,10 @@ const goalsList = ref<DailyGoal[]>([]);
 const userPoints = ref<number>(0);
 const position = ref<number>(0);
 const userRewards = ref<Reward[]>([]);
-const archivedGoals = ref<DailyGoal[]>([])
+
+const archivedGoals = computed( () =>
+  goalsList.value.filter( el => el.completed === true)
+);
 
 export const useDailyGoals = () => {
   /**
@@ -16,10 +19,8 @@ export const useDailyGoals = () => {
    * 1 List of Goals
    * 2 Points 
    */
-
   // Marks the compeled Goals and skips the failed ones
-
-  const goalCompleted = (index: number, isComplete: boolean) => {
+  const goalCompleted = async (index: number, isComplete: boolean) => {
     if (!goalsList.value[index]) return
     if(goalsList.value[index]) {
       goalsList.value[index].completed = isComplete
@@ -29,11 +30,7 @@ export const useDailyGoals = () => {
       //   el.completed === true
       // })
       // userPoints.value++
-      goalsList.value.filter(el => {
-        if(el.completed === true){
-          archivedGoals.value.push(el)
-        }
-      })
+      
 
       // hook here if goal is completed add points 
       if(goalsList.value[index].completed === true){
@@ -41,6 +38,8 @@ export const useDailyGoals = () => {
         // Add my API call here to store completed goals only 
       }
     }
+    // API call from the server
+    await useWpApi()
   }
 
   // add new Goal to user Goals List
