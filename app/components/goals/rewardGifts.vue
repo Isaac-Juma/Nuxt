@@ -2,7 +2,7 @@
     // definePageMeta({layout: 'default'})
     import { useDailyReward } from '~/composables/goals/DailyRewards';
     import type { Reward } from '~~/shared/types/goal';
-import BaseButton from '../Tailwindcss_Ui_Design/BaseButton.vue';
+    import BaseButton from '../Tailwindcss_Ui_Design/BaseButton.vue';
 
     const { addReward, userRewards } = useDailyReward();
     const title = ref<string>('');
@@ -25,7 +25,8 @@ import BaseButton from '../Tailwindcss_Ui_Design/BaseButton.vue';
         // clean for next use
         title.value = ''
         describe.value = ''
-    }
+    };
+
 </script>
 
 <template>

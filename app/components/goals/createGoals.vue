@@ -15,8 +15,6 @@ import { useDailyGoals } from '~/composables/goals/DailyGoals';
 // our system { Goal } object type
 import type { DailyGoal } from '~~/shared/types/goal.ts'
 
-
-
 const { addGoal } = useDailyGoals();
 
 const newGoal =ref<DailyGoal>({
