@@ -4,7 +4,12 @@
 
 <template>
     <!--PAGE Header-->
-    <div class="base-house">
+    <div class="base-house 
+        bg-blue-100 
+        mid:bg-blue-500
+        lg:bg-blue-700
+        xl:bg-blue-900
+    ">
         <Header />
         <Navigation />
 

@@ -1,20 +1,25 @@
 <script setup>
+import NavMenu from './Tailwindcss_Ui_Design/menus/NavMenu.vue';
+
+    
 // const Navlinks = ref([
 //     {name: 'Home', path: '/'}
 // ])
 
 </script>
 
+// This will be the slot content for the NavMenu component. add navigation links 
+// or any other content i want to display within the navigation menu here. 
 <template>
-    <nav class="flex flex-wrap justify-center items-center gap-3 p-4 bg-slate-50 rounded-xl shadow-sm">
-        <NuxtLink class="px-3 py-2 rounded-lg hover:bg-slate-200 transition" to="/">HOME</NuxtLink>
-        <NuxtLink class="px-3 py-2 rounded-lg hover:bg-slate-200 transition" to="/about">About Us</NuxtLink>
-        <NuxtLink class="px-3 py-2 rounded-lg hover:bg-slate-200 transition" to="/contact">Contact Us</NuxtLink>
-        <NuxtLink class="px-3 py-2 rounded-lg hover:bg-slate-200 transition" to="/services">Services</NuxtLink>
-        <NuxtLink class="px-3 py-2 rounded-lg hover:bg-slate-200 transition" to="/login">Login</NuxtLink>
-        <NuxtLink class="px-3 py-2 rounded-lg hover:bg-slate-200" to="/profile">profile</NuxtLink>
-    </nav>
-</template>
+    <NavMenu>
+        <ul class="Menu-nav col-span-1  md:col-span-2 lg:col-span-3 xl:col-span-4">
 
-<style scoped>
-</style>
+        </ul>
+        <li ><NuxtLink to='/'>Home</NuxtLink></li>
+        <li ><NuxtLink to='/about'>About Us</NuxtLink></li>
+        <li ><NuxtLink to='/contact'>Contact Us</NuxtLink></li>
+        <li ><NuxtLink to='/services'>Services</NuxtLink></li>
+        <li><NuxtLink to='/login'>Login</NuxtLink></li>
+        <li><NuxtLink to='/profile'>profile</NuxtLink></li>
+    </NavMenu>
+</template>
