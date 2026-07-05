@@ -76,10 +76,8 @@
       Rewards UI in 1st layer.
       Rewards Gift Component together with its logic in 2nd layer
     -->
-    <Rewards class="col-span-1 md:col-span-1 lg:col-span-1">
-
-      <RewardGifts />
-
-    </Rewards>
+      <Rewards class="col-span-1 md:col-span-1 lg:col-span-1">
+        <RewardGifts />
+      </Rewards>
   </div>
 </template>

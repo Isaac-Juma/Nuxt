@@ -2,10 +2,11 @@
 import type { DailyGoal, Reward } from '~~/types/goal';
 import { useDailyGoals } from './DailyGoals';
 
+// Create....
+const { goalsList, userPoints } = useDailyGoals();
+const userRewards = ref<Reward[]>([])
+
 export const  useDailyReward = () => {
-    // Create....
-    const { goalsList, userPoints } = useDailyGoals();
-    const userRewards = ref<Reward[]>([])
 
     // allow user to add there own favorite  rewards to keep them going 
     const addReward  = (reward: Reward) => {

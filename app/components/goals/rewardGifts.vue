@@ -31,12 +31,12 @@
 
 <template>
     <div class="reward-box">
-        <span class="flex flex-col justify-center m-2 p-2 rounded-xl text-2xl">
+        <!-- <span class="flex flex-col justify-center m-2 p-2 rounded-xl text-2xl">
             My Rewards:{{ userRewards.length }} </br>
         </span>
         <ul v-for="gift in userRewards" :key="gift.id">
             <li>{{ gift.title }}</li>
-        </ul>
+        </ul> -->
 
         <form @submit.prevent="handleReward" class="flex flex-col gap-2 p-2 m-2 ">
             <label for="addReward" class="addReward text-bold">Reward</label>

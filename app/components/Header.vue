@@ -7,7 +7,9 @@ const { data: posts, pending, error } = wppost();
 
 <template>
 
-  <div class="headerBox flex bg-blue-200 justify-between items-center
+  <div class="headerBox flex bg-blue-200 justify-between items-center 
+    md:justify-between md:items-center 
+    lg:justify-between lg:items-center 
 
   ">
     <div class="logo">
