@@ -16,7 +16,6 @@ const navLinks = ref([
 // or any other content i want to display within the navigation menu here. 
 <template>
     <NavMenu>
-        <span class="text-lg font-bold md:hidden lg:hidden">Menu</span>
         <img @click="isMenuOpen = !isMenuOpen"
             src="../assets/menu.gif"
             alt="Menu"
