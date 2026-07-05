@@ -6,11 +6,14 @@
   definePageMeta({layout: 'test'})
 
   import UserDashboard from '~/components/userDashboard.vue';
-  import UserProfile from '~/components/Tailwindcss_Ui_Design/userProfile/UserProfile.vue';
+  import { useRouter } from 'vue-router';
+  
+  const route = useRouter();
 
 </script>
 
 <template>
+  <span @click="route.back()">back</span>
 
   <div class="flex flex-col ">
     <span class="flex justify-center rounded-xl m-2 p-2 text-bold">Dashboard</span>

@@ -3,14 +3,11 @@
 </script>
 
 <template>
-    <nav class="Menu-nav grid
-        sm:grid-cols-1 m-4 p-4 rounded-lg bg-slate-400
-        md:grid-cols-2 
-        lg:grid-cols-3 
-        xl:grid-cols-4
-        "
-        id="navMenu" 
-        name="navMenu
+    <nav class="Menu-nav
+        flex flex-col gap-4 
+        md:flex flex-row gap-4 
+        lg:flex flex-row gap-4
+    
     "> 
         <slot />
     </nav>

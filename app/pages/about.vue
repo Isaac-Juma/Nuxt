@@ -1,3 +1,10 @@
+<script setup>
+    definePageMeta({layout: 'test'})
+    
+        
+    const store = useUserStore()
+</script>
+
 <template>
     <h1>About Page</h1>
     <p>Name: {{ store.user }}</p>
@@ -9,13 +16,3 @@
     height="200"
     >
 </template>
-
-<script setup>
-    definePageMeta({layout: 'test'})
-    
-    const store = useUserStore()
-</script>
-
-<style scoped>
-
-</style>

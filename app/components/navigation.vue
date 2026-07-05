@@ -1,6 +1,18 @@
 <script setup>
 import NavMenu from './Tailwindcss_Ui_Design/menus/NavMenu.vue';
 
+const isMenuOpen = ref(false);
+const navLinks = ref([
+    { name: 'Home', path: '/', label: 'Home' },
+    { name: 'About', path: '/about', label: 'About Us' },
+    { name: 'Contact', path: '/contact', label: 'Contact Us' },
+    { name: 'Services', path: '/services', label: 'Services' },
+    { name: 'Login', path: '/login', label: 'Login' },
+    { name: 'Profile', path: '/profile', label: 'Profile' }
+]);
+
+
+
     
 // const Navlinks = ref([
 //     {name: 'Home', path: '/'}
@@ -12,14 +24,27 @@ import NavMenu from './Tailwindcss_Ui_Design/menus/NavMenu.vue';
 // or any other content i want to display within the navigation menu here. 
 <template>
     <NavMenu>
-        <ul class="Menu-nav col-span-1  md:col-span-2 lg:col-span-3 xl:col-span-4">
-
+        <img @click="isMenuOpen = !isMenuOpen"
+            src="../assets/menu.gif"
+            alt="Logo"
+            class="my-logo 
+                w-16 h-16 rounded-full
+                md:block flex 
+                lg:block flex
+            "
+        />
+        <ul :class="[isMenuOpen ? 'flex' : 'hidden',
+            'Menu-nav flex',
+            'flex-col gap-4',
+            'md:flex md:flex-row md:gap-4',
+            'lg:flex lg:flex-row lg:gap-4'
+        ]">
+            <li v-for="link in navLinks" :key="link.name">
+                <NuxtLink :to="link.path" class="nav-link">
+                    {{ link.label }}
+                </NuxtLink>
+            </li>
         </ul>
-        <li ><NuxtLink to='/'>Home</NuxtLink></li>
-        <li ><NuxtLink to='/about'>About Us</NuxtLink></li>
-        <li ><NuxtLink to='/contact'>Contact Us</NuxtLink></li>
-        <li ><NuxtLink to='/services'>Services</NuxtLink></li>
-        <li><NuxtLink to='/login'>Login</NuxtLink></li>
-        <li><NuxtLink to='/profile'>profile</NuxtLink></li>
+
     </NavMenu>
 </template>
