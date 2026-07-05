@@ -19,9 +19,9 @@ const navLinks = ref([
         <span class="text-lg font-bold md:hidden lg:hidden">Menu</span>
         <img @click="isMenuOpen = !isMenuOpen"
             src="../assets/menu.gif"
-            alt="Logo"
-            class="my-logo 
-                w-16 h-16 rounded-full cursor-pointer
+            alt="Menu"
+            class="nav-menu-icon cursor-pointer 
+                w-16 h-16 rounded-full relative right-2
                 md:hidden 
                 lg:hidden
             "
@@ -29,8 +29,8 @@ const navLinks = ref([
         <ul :class="[isMenuOpen ? 'flex' : 'hidden',
             'Menu-nav flex',
             'flex-col gap-4',
-            'md:flex md:flex-row justify-between md:gap-4',
-            'lg:flex']
+            'md:flex md:flex-row md:justify-between md:items-center',
+            'lg:flex lg:justify-between lg:items-center']
         ">
             <li v-for="link in navLinks" :key="link.name">
                 <NuxtLink :to="link.path" class="nav-link">

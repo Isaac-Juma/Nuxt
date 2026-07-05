@@ -7,15 +7,17 @@ const { data: posts, pending, error } = wppost();
 
 <template>
 
-  <div class="headerBox flex justify-between items-center
-    bg-slate-400 rounded-lg
-    md:bg-blue-500
+  <div class="headerBox flex bg-blue-200 justify-between items-center
+
   ">
     <div class="logo">
       <img
         src="../assets/igris.jpg"
         alt="Logo"
-        class="my-logo w-16 h-16"
+        class="my-logo w-16 h-16 m-4 rounded-full cursor-pointer 
+          md:w-24 md:h-24
+          lg:w-32 lg:h-32
+        "
       />
     </div>
       <span class="text-lg font-bold">Level-Up</span>
