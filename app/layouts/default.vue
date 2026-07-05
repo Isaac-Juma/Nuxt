@@ -4,29 +4,44 @@
 
 <template>
     <!--PAGE Header-->
-    <div class="base-house 
-        bg-blue-100 grid grid-cols-1 gap-4
-        mid:grid-cols-2 bg-blue-500 gap-4
-        lg:grid-cols-3 bg-blue-700
-        xl:grid-cols-4 bg-blue-900
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-h-screen 
+
     ">
-        <Header  />
+        <header class="headerBox col-span-1 
+            justify-between items-center bg-slate-100
+            md:col-span-2 
+            lg:col-span-3
+        ">
+            <Header />
+        </header>
 
         <!--Main Content Area-->
-        <main class="main_page m-2 p-2 rounded-xl
-            md:col-span-2 
-            lg:col-span-2 
-            xl:col-span-3"
-            id="main_content"
-            name="main_content"
+        <main class="main_page col-span-1
+            md:col-span-2
+            lg:col-span-3
+        "
+            id=""
+            name=""
         >
             <slot />
         </main>
 
         <!--Aside Panel-->
-        <SidePanel />
+        <aside class="side_panel col-span-1
+            md:col-span-2
+            lg:col-span-3
+        ">
+            <slot name="aside" />
+            <SidePanel />
+        </aside>
 
         <!--PAGE Footer-->
-        <FooterPage />
+        <footer class="footerBox col-span-1
+            md:col-span-2
+            lg:col-span-3   
+        ">
+            <slot name="footer" />
+            <FooterPage />
+        </footer>
     </div>
 </template>

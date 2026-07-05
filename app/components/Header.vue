@@ -3,35 +3,22 @@
 const { wppost } = useWpApi();
 // const { data: posts, pending, error } = await useWpApi
 const { data: posts, pending, error } = wppost();
-
-
-
 </script>
+
 <template>
+
   <div class="headerBox flex justify-between items-center
-    bg-slate-100 m-2 p-2 rounded-xl
+    bg-slate-400 rounded-lg
     md:bg-blue-500
   ">
-
     <div class="logo">
       <img
         src="../assets/igris.jpg"
         alt="Logo"
-        class="my-logo 
-          w-16 h-16 rounded-full
-          md:w-36 md:h-36
-          lg:w-36 lg:h-36"
+        class="my-logo w-16 h-16"
       />
     </div>
-
-    <Navigation />
+      <span class="text-lg font-bold">Level-Up</span>
+      <Navigation />
   </div>
-    <!-- <h1 class="justify-center">Welcome to the homepage Header</h1>
-    <p class="">This is the header component</p>
-    <p v-if="pending">Loading posts...</p>
-    <p v-else-if="error">Error loading posts: {{ error.message }}</p>
-    <ul v-else>
-      <P>{{ posts?.length || 0 }} posts available</P> -->
-      <!-- <li v-for="post in posts" :key="post.id">Title: {{ post.title.rendered }} -{{ post.featured_image_url }}</li> 
-    </ul> -->
 </template>
