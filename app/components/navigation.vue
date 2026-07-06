@@ -20,7 +20,7 @@ const navLinks = ref([
             src="../assets/menu.gif"
             alt="Menu"
             class="nav-menu-icon cursor-pointer 
-                w-16 h-16 rounded-full relative right-2
+                w-16 h-16 rounded-full
                 md:hidden 
                 lg:hidden
             "

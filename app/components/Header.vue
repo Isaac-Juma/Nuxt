@@ -1,16 +1,15 @@
 <script setup lang="ts">
 // use the data that's been fetched in the wpapi plugin
-const { wppost } = useWpApi();
+// const { wppost } = useWpApi();
 // const { data: posts, pending, error } = await useWpApi
-const { data: posts, pending, error } = wppost();
+// const { data: posts, pending, error } = wppost();
 </script>
 
 <template>
 
-  <div class="headerBox flex bg-blue-200 justify-between items-center 
+  <div class="headerBox flex bg-blue-200 justify-around items-center 
     md:justify-between md:items-center 
     lg:justify-between lg:items-center 
-
   ">
     <div class="logo">
       <img
@@ -22,7 +21,9 @@ const { data: posts, pending, error } = wppost();
         "
       />
     </div>
+
       <h1 class="text-lg font-bold">SOLO-LEVELING</h1>
+
       <Navigation />
   </div>
 </template>

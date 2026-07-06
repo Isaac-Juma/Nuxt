@@ -8,7 +8,7 @@
 
     ">
         <header class="headerBox col-span-1 
-            justify-between items-center
+            justify-between items-center sticky top-0 z-50
             md:col-span-2 
             lg:col-span-3
         ">

@@ -10,21 +10,28 @@ definePageMeta({layout: 'default'})
 
 <template>
   <LandingPage>
-    <div class="banner w-full h-auto justify-center place-items-center">
-      <img src="../assets/mtv.jpg" 
+    <div class="banner w-full justify-center place-items-center">
+  
+      <NuxtImg src="/mtv.jpg"
       alt="Solo Leveling Portal" 
-      class="w-full h-auto shadow-md mt-4"
+      class="w-full h-[60dvh] overflow-hidden object-cover shadow-md mt-4 m-2
+      md:w-full md:h-[60dvh] object-cover md:shadow-md md:mt-4 md:m-2
+      lg:w-full lg:h-[80dvh] object-cover lg:shadow-md lg:mt-4" lg:m-2
       />
       
-      <p>This is a self improvement platform that helps you turn your struggles into strengths.</p>
-      
-      <article class="mt-4 border-t-8  border-gray-300 bg-blue-300 p-4 rounded-lg shadow-md">
-        <h3 class="text-lg font-semibold mb-2"></h3>
-        <p>Use any addiction you have to change your current systems to improve your life </p>
-        <img src="../assets/man.jpg" 
+      <div class="justify-center place-items-center text-black text-bold m-2 p-2 bg-gray-200 rounded-lg">
+        <h2 class="text-2xl font-bold text-center m-2 p-2">Level Up And Master Your Daily Routines</h2>
+        <p>This is a self improvement platform.</p>
+        <img src="/man.jpg" 
           alt="Solo Leveling Portal" 
-          class="w-fit h-auto shadow-md mt-4"
+          class="w-full h-auto shadow-md mt-4 m-2
+          md:w-full md:h-[50dvh] object-cover md:shadow-md md:m-2
+          lg:w-full lg:h-[70dvh] object-cover lg:shadow-md md:m-2"
         />
+      </div>
+
+      <article class="mt-4 border-t-8  border-gray-300 bg-blue-300 p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-2">Turn Your Struggles To Strength</h3>
         <p>The Solo Leveling Portal helps you turn any addiction into a strength that pushes you forward </p>
         <p>With the power of community and personalized coaching, you can transform your life.</p>
         <p>Important: </br> This platform is designed to help you manage your daily Habits that change into your personal system <br>
@@ -32,6 +39,7 @@ definePageMeta({layout: 'default'})
           We give you the tools and support you need to succeed, But you must be willing to put in the effort.
         </p>
       </article>
+
     </div>
   </LandingPage>
 </template>
