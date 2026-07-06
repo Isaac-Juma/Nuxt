@@ -22,7 +22,7 @@ const { data: posts, pending, error } = wppost();
         "
       />
     </div>
-      <span class="text-lg font-bold">Solo Leveling</span>
+      <h1 class="text-lg font-bold">SOLO-LEVELING</h1>
       <Navigation />
   </div>
 </template>
