@@ -14,7 +14,7 @@ const { data: posts, pending, error } = wppost();
   ">
     <div class="logo">
       <img
-        src="../assets/igris.jpg"
+        src="../assets/logo.jpg"
         alt="Logo"
         class="my-logo w-16 h-16 m-4 rounded-full cursor-pointer 
           md:w-24 md:h-24
@@ -22,7 +22,7 @@ const { data: posts, pending, error } = wppost();
         "
       />
     </div>
-      <span class="text-lg font-bold">Level-Up</span>
+      <span class="text-lg font-bold">Solo Leveling</span>
       <Navigation />
   </div>
 </template>
