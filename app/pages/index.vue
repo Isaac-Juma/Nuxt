@@ -18,11 +18,14 @@ definePageMeta({layout: 'default'})
         Level-up to your highest potential
       </h2>
 
-      <p class="text-2xk text-black mt-16 m-4 p-4">Build Your own Personal Level-Up System With our Help.</p>
+      <p class="text-2xl text-black mt-8 m-4 p-4">Build Your own
+        <span class="bg-blue-200 text-black">Personal Level-Up System</span> 
+      </p>
 
       <BaseButton class="mt-16 m-2 p-2">
         <span>Start For Free</span>
       </BaseButton>
+
     </div>
   </LandingPage>
 </template>
