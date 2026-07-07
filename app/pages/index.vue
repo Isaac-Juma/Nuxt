@@ -21,7 +21,7 @@ definePageMeta({layout: 'default'})
       <p class="text-2xl text-black mt-8 m-4 p-4">Build Your own Personal Level-Up System</p>
 
       <NuxtLink 
-        to="/about" 
+        to="/profile" 
         class="bg-blue-600 w-fit  hover:bg-blue-700 text-white font-medium py-2 px-4 
         rounded-lg inline-block text-center m-4 p-4"
       >
