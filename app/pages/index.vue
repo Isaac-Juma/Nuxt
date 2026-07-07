@@ -11,14 +11,14 @@ definePageMeta({layout: 'default'})
 
 <template>
   <LandingPage>
-    <div class="w-full h-[90dvh] bg-[url(landing.jpg)] bg-cover bg-center bg-no-repeat flex flex-col"
+    <div class="w-full h-[90dvh] bg-[url(/landing.jpg)] bg-cover bg-center bg-no-repeat flex flex-col"
       alt="landingpage"
     >
       <h2 class="text-3xl text-black text-bold mt-16 m-4 p-4 text-center">
         Level-up to your highest potential
       </h2>
 
-      <p class="text-2xk text-black mt-16 m-4 p-4">Build Your  Personal Level-Up System With Us.</p>
+      <p class="text-2xk text-black mt-16 m-4 p-4">Build Your own Personal Level-Up System With our Help.</p>
 
       <BaseButton class="mt-16 m-2 p-2">
         <span>Start For Free</span>
