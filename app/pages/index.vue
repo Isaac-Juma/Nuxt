@@ -25,7 +25,7 @@ definePageMeta({layout: 'default'})
         class="bg-blue-600 w-fit  hover:bg-blue-700 text-white font-medium py-2 px-4 
         rounded-lg inline-block text-center m-4 p-4"
       >
-        Go to About Page
+        Start For Free
       </NuxtLink>
     </div>
   </LandingPage>
