@@ -20,10 +20,13 @@ definePageMeta({layout: 'default'})
 
       <p class="text-2xl text-black mt-8 m-4 p-4">Build Your own Personal Level-Up System</p>
 
-      <BaseButton class="mt-16 m-2 p-2">
-        <span>Start For Free</span>
-      </BaseButton>
-
+      <NuxtLink 
+        to="/about" 
+        class="bg-blue-600 w-fit  hover:bg-blue-700 text-white font-medium py-2 px-4 
+        rounded-lg inline-block text-center m-4 p-4"
+      >
+        Go to About Page
+      </NuxtLink>
     </div>
   </LandingPage>
 </template>
