@@ -65,13 +65,21 @@
       <Rewards class="col-span-1 md:col-span-1 lg:col-span-1"
         @click="isOpen = !isOpen"
       >
-        <span>Rewards{{ userRewards.length }}</span>
+        <span class="">Rewards: {{ userRewards.length }} </span> 
+        <div class="flex flex-row gap-4 justify-center items-center w-full font-semibold text-gray-800">
+          <!-- Arrow shifts down when open -->
+          <span :class="{ 'rotate-180': isOpen }" class="text-center transition-transform duration-300 text-xl">▼</span>
+        </div>
+        
         <div v-if="isOpen"
-          class=""
+          class="flex justify-center items-center w-full"
           name="rewards-box"
         >
-          <ul v-for="reward in userRewards" :key="reward.id">
-            <li class="bg-gray-200 m-2 p-4 rounded-lg">Reward: {{ reward.title }}</li>
+          <ul class="space-y-4">
+            <li v-for="reward in userRewards" :key="reward.id"
+              class="bg-gray-200 text-center rounded-lg p-2">
+              {{ reward.title }}
+            </li>
           </ul>
         </div>
       </Rewards>
