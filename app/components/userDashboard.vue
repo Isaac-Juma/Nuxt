@@ -25,6 +25,10 @@
   const { goalsList, userPoints, archivedGoals } = useDailyGoals();
   const { userRewards } = useDailyReward();
 
+  const isClicked = ref(false);
+  const isOpen = ref(false);
+  const isAchieved = ref(false);
+
 </script>
 
 <template>
@@ -47,19 +51,40 @@
         </div>
       </UserPoints>
       
-      <UserGoals class="user-Goals-box">
-        Goals: {{ goalsList.length }}
+      <UserGoals class="user-Goals-box" @click="isClicked = !isClicked">
+        <span>Goals: {{ goalsList.length }}</span>
+        <div class="myGoals" v-if="isClicked">
+          <!--Only show when clicked-->
+          <ul v-for="goal in goalsList" :key="goal.id">
+            <li class="m-2 p-2 bg-gray-200 rounded-lg">GOAL : {{ goal.title }}</li>
+            <p class="m-1 p-2 bg-gray-100 rounded-lg">WHY : {{ goal.description }}</p>
+          </ul>
+        </div>
       </UserGoals>
 
-      <Rewards>
-        <span>My Rewards {{ userRewards.length }}</span>
-        <p v-for="gift in userRewards" :key="gift.id">{{ gift.title }}</p>
+      <Rewards class="col-span-1 md:col-span-1 lg:col-span-1"
+        @click="isOpen = !isOpen"
+      >
+        <span>Rewards{{ userRewards.length }}</span>
+        <div v-if="isOpen"
+          class=""
+          name="rewards-box"
+        >
+          <ul v-for="reward in userRewards" :key="reward.id">
+            <li class="bg-gray-200 m-2 p-4 rounded-lg">Reward: {{ reward.title }}</li>
+          </ul>
+        </div>
       </Rewards>
     </div>
 
-    <CompletedGoals class="col-span-1 md:col-span-1 lg:col-span-1">
-      <div v-for="goal in archivedGoals" :key="goal.id">
-        <li>{{ goal.title }}</li>
+    <CompletedGoals
+      class="col-span-1 md:col-span-1 lg:col-span-1" @click="isAchieved = !isAchieved"
+    >
+      <span>Achieved Goals : {{ archivedGoals.length }}</span>
+      <div v-if="isAchieved">
+        <ul v-for="achieved in archivedGoals" :key="achieved.id">
+          <li class="bg-green-200 m-4 p-4 rounded-lg">{{ achieved.title }}</li>
+        </ul>
       </div>
     </CompletedGoals>
     
