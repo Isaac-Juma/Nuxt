@@ -14,11 +14,12 @@ definePageMeta({layout: 'default'})
     <div class="w-full h-[90dvh] bg-[url(/landing.jpg)] bg-cover bg-center bg-no-repeat flex flex-col"
       alt="landingpage"
     >
-      <h2 class="text-3xl text-black text-bold mt-16 m-4 p-4 text-center">
+      <h1 class="text-3xl text-black text-bold mt-16 m-4 p-4 text-center">
         Level-up to your highest potential
-      </h2>
+      </h1>
+      <h2 class="text-center "> A private system designed to unlock your highest potential, one daily quest at a time.</h2>
 
-      <p class="text-2xl text-black mt-8 m-4 p-4">Build Your own Personal Level-Up System</p>
+      <p class="text-2xl text-black mt-8 m-4 p-4">Your Journey. Your System. No Audience Required.</p>
 
       <NuxtLink 
         to="/profile" 
