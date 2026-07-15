@@ -1,9 +1,10 @@
 // app/composables/goals/dailygoals.ts
-import type { DailyGoal, Reward } from '~~/types/goal';
+import type {  DailyGoal, Reward } from '~~/types/goal';
 import { useDailyGoals } from './DailyGoals';
 
 // Create....
 const { goalsList, userPoints } = useDailyGoals();
+const countRewards = ref(0)
 const userRewards = ref<Reward[]>([])
 
 export const  useDailyReward = () => {
@@ -15,10 +16,12 @@ export const  useDailyReward = () => {
 
     // Only give the rewards when a certain achievement has been reached
     const giveReward = () => {
-        // 1. what do determain if a user deserve a reward ?
-        if(userPoints.value === 3){
-            console.log('Yes')
-        }
+        /**
+         * 1. What will decide if a user deserves a reward
+         * 2. How will the system know it's time to release the rewards that the user added
+         */
+
+
     }
     // retrun them  for use and destructure
     return { addReward, giveReward, userRewards }

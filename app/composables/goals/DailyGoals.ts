@@ -6,7 +6,6 @@ import type { DailyGoal, Reward } from '~~/types/goal';
 
 const goalsList = ref<DailyGoal[]>([]);
 const userPoints = ref<number>(0);
-const position = ref<number>(0);
 const userRewards = ref<Reward[]>([]);
 
 const archivedGoals = computed( () =>
@@ -20,17 +19,10 @@ export const useDailyGoals = () => {
    * 2 Points 
    */
   // Marks the compeled Goals and skips the failed ones
-  const goalCompleted = async (index: number, isComplete: boolean) => {
+  const goalCompleted = async ( index: number , isComplete: boolean) => {
     if (!goalsList.value[index]) return
     if(goalsList.value[index]) {
       goalsList.value[index].completed = isComplete
-
-      //new Ideas
-      // goalsList.value.forEach(el => {
-      //   el.completed === true
-      // })
-      // userPoints.value++
-      
 
       // hook here if goal is completed add points 
       if(goalsList.value[index].completed === true){
@@ -39,9 +31,9 @@ export const useDailyGoals = () => {
       }
     }
     // API call from the server
-    await useWpApi()
+     await useWpApi()
+  
   }
-
   // add new Goal to user Goals List
   const addGoal = async (newGoal: DailyGoal) => {
     if(!newGoal.title.trim()) {
