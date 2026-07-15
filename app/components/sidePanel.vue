@@ -6,7 +6,9 @@ import BaseButton from './Tailwindcss_Ui_Design/BaseButton.vue';
 
 <template>
     <h3 class="text-2xl text-center m-2 p-2 text-black">WHY US ?</h3>
-    <p class="text-center">With the help of solo-leveling you are guranteed changes in the first 3 months of fully committed</p>
+    <p class="text-center">We will be taking some time off </p>
+    <p class="text-center">Have some personal issues need to deal with </p>
+    <p class="text-center">SEE YOU SOON WHEN I'M BACK</p>
     <div class="sidePanel flex flex-col justify-between rounded-xl m-2 p-2">
         <!-- <NuxtImg
             src="/landingpage.jpg"
