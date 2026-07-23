@@ -1,16 +1,24 @@
-import { defineStore } from 'pinia';
+// import { defineStore } from 'pinia';
+// import type { DailyGoal} from '~~/types/goal';
 
-export const useGoalsStore = defineStore('GoalsData', () => {
+export const useGoalsStore = defineStore('Goal', {
 
-    //Goal state
-    const goal = ref('');
-    const completed = ref(false);
+  state: () => ({
+    title:'',
+    desc: '',
+    achieved: false,
+    starting: '',
+    deadline: ''
+  }),
 
-    //Goal Action
-    function updateGoalStatus(status: boolean){
-        completed.value = status
+  actions: {
+    setGoals(goal:DailyGoal) {
+      this.title = goal.title
+      this.desc = goal.description
+      this.achieved = goal.completed
+      this.starting = goal.start
+      this.deadline = goal.deadline
     }
+  }
 
-    // return for reuse 
-    return { goal, completed, updateGoalStatus }
-});
+})

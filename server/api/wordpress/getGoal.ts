@@ -9,11 +9,11 @@ export default defineEventHandler(async (event) => {
     const quary = getQuery(event);
     const pageNum = Number(quary.page) || 1;
 
-    // 2. fetch the data 
+    // 2. fetch the data from the DataBase
     try {
         const getGoal = goalsController.getPage(pageNum)
         console.log(pageNum)
-        return getGoal
+        return {getGoal}
     }
     catch(error){
         throw createError({

@@ -1,22 +1,19 @@
 // User Goals Will Be Created here from this file
 // Import our Goal Type
-import { DailyGoal } from "~~/shared/types/goal"
-
+import type { DailyGoal, Reward, Journal } from "~~/types/goal"
 import { defineEventHandler, readBody, createError } from "h3"
 
 export default defineEventHandler(async (event) => {
 
     // 1. Read incoming request from the Client
-    const goals: DailyGoal = await readBody(event)
-    console.log('Data:',goals)
+    const goal: DailyGoal = await readBody(event)
 
     // 2. Add security layers later with other intents
-
+    
     // 3. Post the Goals Data to the Database
     try {
-        const request = await goalsController.createGoals(goals)
-        // return a successfull notification
-        console.log(goals)
+        const request = await goalsController.createGoals(goal)
+
         return {
             successful: true,
             message: 'Thank you for Joining the league of legends',

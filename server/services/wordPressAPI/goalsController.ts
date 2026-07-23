@@ -2,7 +2,14 @@
  * Import our Goal Type Obj
  * 
 */
-import { DailyGoal } from "~~/shared/types/goal";
+import { DailyGoal } from "~~/types/goal";
+
+/** 
+ * I'll be using oop on this local Server 
+*/
+export class GoalHandler {
+  
+}
 
 export const goalsController = {
   // Fetch posts from wordpress
@@ -31,7 +38,7 @@ export const goalsController = {
   },
 
   // POST to DB this Goals and Save it
-  async createGoals (data: DailyGoal) : Promise<DailyGoal | null> {
+  async createGoals(data : DailyGoal) : Promise<DailyGoal | null> {
     // use NUXT Runtimeconfig
     const config = useRuntimeConfig();
 

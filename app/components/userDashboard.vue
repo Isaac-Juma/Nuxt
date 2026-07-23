@@ -19,11 +19,13 @@
   //Business logic
   import { useDailyGoals } from '~/composables/goals/DailyGoals';
   import { useDailyReward } from '~/composables/goals/DailyRewards.js';
-  import CompletedGoals from './Tailwindcss_Ui_Design/forms/CompletedGoals.vue'
+  import CompletedGoals from './Tailwindcss_Ui_Design/forms/CompletedGoals.vue';
+  import { useGoalsStore } from '~/stores/goalsData.js'
 
   // logic for inserting data to thiS components
   const { goalsList, userPoints, archivedGoals } = useDailyGoals();
   const { userRewards } = useDailyReward();
+  const goals = useGoalsStore();
 
   const isClicked = ref(false);
   const isOpen = ref(false);
@@ -89,6 +91,7 @@
       class="col-span-1 md:col-span-1 lg:col-span-1" @click="isAchieved = !isAchieved"
     >
       <span>Achieved Goals : {{ archivedGoals.length }}</span>
+      <h1>{{  }}</h1>
       <div v-if="isAchieved">
         <ul v-for="achieved in archivedGoals" :key="achieved.id">
           <li class="bg-green-200 m-4 p-4 rounded-lg">{{ achieved.title }}</li>

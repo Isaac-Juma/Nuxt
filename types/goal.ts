@@ -6,6 +6,19 @@ export interface DailyGoal {
   title: string
   description: string
   completed: boolean
+  start: string
+  deadline: string
+}
+
+/**
+ * TextArea
+ */
+export interface Journal {
+  id: string
+  date: string
+  title: string
+  desc: string
+  journal: boolean
 }
 
 /**
